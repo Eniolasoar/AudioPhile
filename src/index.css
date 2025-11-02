@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@theme {
+  --font-primary: "Manrope", "sans-serif";
+  --color-primary: #D87D4A;
+  --color-primary-1: #fbaf85;
+  --color-black-1: #101010;
+  --color-gray-1: #F1F1F1;
+  --color-gray-2: #FAFAFA;
+
+ 
+
+
+}
+h1,h2,h3,h4,h5,h6{
+  text-transform: uppercase;
+  color: black;
+}
+
+h1{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+}
+h2{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: 1.5px;
+}
+h3{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 1.115px;
+}
+h4{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: 2px;
+}
+h5{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 1.7px;
+}
+h6{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1.3px;
+}
+
+.overline{
+font-family: var(--font-primary);
+font-weight: normal;
+font-size: 14px;
+line-height: 19px;
+letter-spacing: 10px;
+}
+.subtitle{
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+.body{
+  font-family: var(--font-primary);
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 25px;
+
+}
+.button-primary{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 8px;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 13px;
+  color:white;
+  background-color: var(--color-primary);
+  text-transform: uppercase;
+}
+.button-primary:hover{
+  background-color: var(--color-primary-1);
+}
+
+.button-secondary{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 8px;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  text-transform: uppercase;
+}
+.button-secondary:hover{
+  background-color: black;
+  color: white;
+}
+
+.button-tertiary{
+  color:var(--color-gray-1);
+  text-transform: uppercase;
+  font-family: var(--font-primary);
+  font-weight: bold;
+  font-size: 13px;
+  
+}
+.button-tertiary::after{
+  content: '>';
+  display: block;
+width: 5px;
+  height: 10px;
+  color: var(--color-primary);
+  margin-left: 8px;
+}
+
+.button-tertiary:hover{
+  color:var(--color-primary);
+}
