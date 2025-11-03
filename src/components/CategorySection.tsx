@@ -2,7 +2,7 @@
 const CategorySection: React.FC = () => {
 return(
 <>
-<section className="flex flex-col md:flex-row justify-between gap-[100px] sm:gap-6">
+<section className="w-full flex flex-col md:flex-row justify-between gap-[100px] sm:gap-6">
         {[
           {
             title: "HEADPHONES",

@@ -3,8 +3,10 @@ import HeroPageHeader from "../components/HeroPageHeader";
 import ProductSection from "../components/ProductSection";
 import CategorySection from "../components/CategorySection";
 import BestGearSection from "../components/BestGearSection";
+import { useNavigate } from "react-router-dom";
 
 const SpeakerPage: React.FC = () => {
+    const navigate=useNavigate();
   return (
     <main>
       <HeroPageHeader title="Speakers" />
@@ -16,6 +18,9 @@ const SpeakerPage: React.FC = () => {
           subtitle="Headphones"
           description="Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups."
           newProduct
+          onButtonClick={()=>{
+            navigate("/speaker/zx7-speaker")
+                      }}
         />
         <ProductSection
           image="/assets/product-zx9-speaker/desktop/image-category-page-preview.jpg"
@@ -23,6 +28,9 @@ const SpeakerPage: React.FC = () => {
           subtitle="Headphones"
           description="Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use."
           reverse
+          onButtonClick={()=>{
+            navigate("/speaker/zx9-speaker")
+                      }}
         />
       
 

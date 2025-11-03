@@ -3,8 +3,10 @@ import HeroPageHeader from "../components/HeroPageHeader";
 import ProductSection from "../components/ProductSection";
 import CategorySection from "../components/CategorySection";
 import BestGearSection from "../components/BestGearSection";
+import { useNavigate } from "react-router-dom";
 
 const EarphonesPage: React.FC = () => {
+    const navigate=useNavigate();
   return (
     <main>
       <HeroPageHeader title="EarPhones" />
@@ -16,6 +18,9 @@ const EarphonesPage: React.FC = () => {
 EARPHONES"
           description="Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature."
           newProduct
+          onButtonClick={()=>{
+            navigate("/earphones/yx1-earphones")
+                      }}
         />
         
 
