@@ -163,3 +163,8 @@ text-decoration: none;
   color:var(--color-primary);
   cursor:pointer;
 }
+
+.icon-primary-hover:hover {
+  filter: brightness(0) saturate(100%) invert(53%) sepia(64%) saturate(733%)
+    hue-rotate(342deg) brightness(99%) contrast(92%);
+}
