@@ -65,6 +65,7 @@ font-weight: normal;
 font-size: 14px;
 line-height: 19px;
 letter-spacing: 10px;
+text-decoration: none;
 }
 .subtitle{
   font-family: var(--font-primary);
@@ -94,6 +95,7 @@ letter-spacing: 10px;
 }
 .button-primary:hover{
   background-color: var(--color-primary-1);
+  cursor:pointer;
 }
 
 .button-secondary{
@@ -112,6 +114,7 @@ letter-spacing: 10px;
 .button-secondary:hover{
   background-color: black;
   color: white;
+  cursor:pointer;
 }
 
 .button-tertiary{
@@ -133,4 +136,5 @@ width: 5px;
 
 .button-tertiary:hover{
   color:var(--color-primary);
+  cursor:pointer;
 }
