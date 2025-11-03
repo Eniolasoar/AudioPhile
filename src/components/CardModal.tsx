@@ -2,6 +2,7 @@
 import React from "react";
 import CounterButton from "./CounterButton";
 import { useCart } from "../../context/CardContext";
+import { useNavigate } from "react-router-dom";
 
 const CartModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   isOpen,
@@ -15,6 +16,8 @@ const CartModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     (acc, item) => acc + item.product.price * item.quantity,
     0
   );
+
+  const navigate = useNavigate();
 
   return (
     <div
@@ -78,7 +81,7 @@ const CartModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
         </div>
 
         {/* Checkout */}
-        <button className="button-primary w-full">Checkout</button>
+        <button className="button-primary w-full" onClick={()=>{navigate("/checkout")}}>Checkout</button>
       </div>
     </div>
   );

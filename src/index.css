@@ -11,6 +11,10 @@
 
 
 }
+body{
+  background-color: #FAFAFA;
+  font-family: 'Manrope';
+}
 h1,h2,h3,h4,h5,h6{
   text-transform: uppercase;
   color: black;
@@ -68,6 +72,14 @@ letter-spacing: 10px;
 text-decoration: none;
 }
 .subtitle{
+  font-family: var(--font-primary);
+  color:var(--color-primary);
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+.label{
   font-family: var(--font-primary);
   font-weight: bold;
   font-size: 13px;

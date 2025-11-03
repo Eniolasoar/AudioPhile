@@ -7,6 +7,7 @@ import Speakers from "./pages/SpeakerPage";
 import Earphones from "./pages/EarphonesPage";
 import Footer from "./components/Footer";
 import ProductDetails from "./components/ProductDetails";
+import Checkout from "./pages/Checkout";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/speakers" element={<Speakers />} />
         <Route path="/earphones" element={<Earphones />} />
         <Route path="/:product/:slug" element={<ProductDetails/>} />
+        <Route path="/checkout" element={<Checkout/>} />
       </Routes>
       <Footer />
     </>
