@@ -1,40 +1,12 @@
 import React from "react";
+import CategorySection from "./CategorySection";
+import BestGearSection from "./BestGearSection";
 
 const MainContent: React.FC = () => {
   return (
     <main className="w-[90%] mx-auto mt-[100px] space-y-24">
       {/* 1️⃣ Category Cards */}
-      <section className="flex flex-col md:flex-row justify-between gap-[100px] sm:gap-6">
-        {[
-          {
-            title: "HEADPHONES",
-            image: "/assets/shared/desktop/image-category-thumbnail-headphones.png",
-          },
-          {
-            title: "SPEAKERS",
-            image: "/assets/shared/desktop/image-category-thumbnail-speakers.png",
-          },
-          {
-            title: "EARPHONES",
-            image: "/assets/shared/desktop/image-category-thumbnail-earphones.png",
-          },
-        ].map((item, index) => (
-          <div
-            key={index}
-            className="relative bg-[var(--color-gray-1)] rounded-lg flex flex-col items-center justify-end py-16 px-8 flex-1"
-          >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="absolute -top-12 w-[120px] md:w-[140px] object-contain"
-            />
-            <h6 className="mt-16">{item.title}</h6>
-            <button className="button-tertiary mt-3 flex items-center">
-              Shop
-            </button>
-          </div>
-        ))}
-      </section>
+      <CategorySection/>
 
       {/* 2️⃣ ZX9 Speaker Section */}
       <section className="relative bg-[var(--color-primary)] text-white rounded-lg overflow-hidden flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 py-16">
@@ -103,42 +75,7 @@ const MainContent: React.FC = () => {
       </section>
 
       {/* 5️⃣ Best Gear Section (Responsive Image) */}
-      <section className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-        {/* Text Content */}
-        <div className="flex-1 text-center lg:text-left">
-          <h2 className="mb-6">
-            Bringing you the{" "}
-            <span className="text-[var(--color-primary)]">best</span> audio gear
-          </h2>
-          <p className="text-[#7d7d7d] max-w-lg mx-auto lg:mx-0">
-            Located at the heart of New York City, Audiophile is the premier
-            store for high end headphones, earphones, speakers, and audio
-            accessories. We have a large showroom and luxury demonstration rooms
-            available for you to browse and experience a wide range of our
-            products. Stop by our store to meet some of the fantastic people who
-            make Audiophile the best place to buy your portable audio equipment.
-          </p>
-        </div>
-
-        {/* Responsive Image */}
-        <div className="flex-1 rounded-lg overflow-hidden">
-          <picture>
-            <source
-              srcSet="/assets/shared/desktop/image-best-gear.jpg"
-              media="(min-width: 1024px)"
-            />
-            <source
-              srcSet="/assets/shared/tablet/image-best-gear.jpg"
-              media="(min-width: 640px)"
-            />
-            <img
-              src="/assets/shared/mobile/image-best-gear.jpg"
-              alt="Best Gear"
-              className="w-full h-full object-cover"
-            />
-          </picture>
-        </div>
-      </section>
+      <BestGearSection/>
     </main>
   );
 };
