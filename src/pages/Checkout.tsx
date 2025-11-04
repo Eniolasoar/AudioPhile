@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import FormField from "../components/FormField";
 import ConfirmationModal from "../components/ConfirmationModal";
 import { useCart } from "../../context/CardContext";
+import { useMutation } from "convex/react";
+import { api } from "../../convex/_generated/api";
+
 
 type FormValues = {
   name: string;
@@ -18,6 +21,9 @@ type FormValues = {
 };
 
 const Checkout: React.FC = () => {
+  const createOrder = useMutation(api.createOrder.createOrder);
+
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const {
@@ -41,57 +47,54 @@ const Checkout: React.FC = () => {
 
   const onSubmit = async (data: FormValues) => {
     if (!cartItems.length) {
-      // show error (example)
       setError("name", { type: "manual", message: "Cart is empty" });
       return;
     }
-
-    // Basic e-Money validation if selected
-    if (data.paymentMethod === "e-money") {
-      if (!/^\d+$/.test(data.eMoneyNumber || "")) {
-        setError("eMoneyNumber", { type: "manual", message: "Wrong format" });
-        return;
-      }
-      if (!/^\d+$/.test(data.eMoneyPin || "")) {
-        setError("eMoneyPin", { type: "manual", message: "Wrong format" });
-        return;
-      }
+  
+    try {
+      const orderId = `ORD-${Date.now()}`;
+      const order = {
+        orderId,
+        customer: {
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+        },
+        shipping: {
+          address: data.address,
+          zip: data.zip,
+          city: data.city,
+          country: data.country,
+        },
+        items: cartItems.map((c) => ({
+          id: c.product.id.toString(),
+          name: cleanProductName(c.product.name),
+          price: c.product.price,
+          quantity: c.quantity,
+          image: `/assets/cart/image-${c.product.slug}.jpg`,
+        })),
+        totals: { subtotal: total, shipping, vat, grandTotal },
+      };
+  
+      console.log("Creating order...", order);
+  
+      const result = await createOrder(order);
+      console.log("✅ Order successfully created:", result);
+  
+      setOrderSnapshot(order);
+      setIsModalOpen(true);
+    } catch (error: any) {
+      console.error("❌ Error creating order:", error);
+  
+      // Optionally show user-friendly inline error
+      setError("name", {
+        type: "manual",
+        message: "Something went wrong while processing your order.",
+      });
     }
-
-    // Create a simple order snapshot for the confirmation modal.
-    const order = {
-      id: `ORD-${Date.now()}`,
-      customer: {
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-      },
-      shipping: {
-        address: data.address,
-        zip: data.zip,
-        city: data.city,
-        country: data.country,
-      },
-      items: cartItems.map((c) => ({
-        id: c.product.id,
-        name: c.product.name,
-        price: c.product.price,
-        quantity: c.quantity,
-        image: `/assets/cart/image-${c.product.slug}.jpg`,
-      })),
-      totals: {
-        subtotal: total,
-        shipping: 50, // example flat shipping
-        vat: Math.round(total * 0.2), // example 20% VAT
-        grandTotal: total + 50 + Math.round(total * 0.2),
-      },
-    };
-
-    // TODO: send order to backend (Convex) + send email using Resend/Nodemailer.
-    // For now show confirmation modal:
-    setOrderSnapshot(order);
-    setIsModalOpen(true);
   };
+  
+  
   const cleanProductName = (name: string) =>
     name.replace(/earphones|headphones|speaker/gi, "").trim();
 

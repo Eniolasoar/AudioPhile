@@ -1,17 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { ConvexProvider, ConvexReactClient } from "convex/react";
 import App from "./App";
 import "./index.css";
 import { CartProvider } from "../context/CardContext";
 
+// ✅ Your Convex deployment URL
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-    <CartProvider>
-    <App />
-    </CartProvider>
-      
-    </BrowserRouter>
+    <ConvexProvider client={convex}>
+      <BrowserRouter>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </BrowserRouter>
+    </ConvexProvider>
   </React.StrictMode>
 );

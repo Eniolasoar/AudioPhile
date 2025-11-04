@@ -41,7 +41,7 @@ const ConfirmationModal: React.FC<{ order: Order; onClose: () => void }> = ({ or
                   <div className="text-black font-semibold text-[15px] leading-[25px]">{order.items[0].name}</div>
                   <div className="text-[#808080] text-[14px]">${order.items[0].price.toLocaleString()}</div>
                 </div>
-                <div className="ml-auto font-bold">x{order.items[0].quantity}</div>
+                <div className="ml-auto font-bold text-[#707070] !align-top">x{order.items[0].quantity}</div>
               </div>
 
               {othersCount > 0 && (
