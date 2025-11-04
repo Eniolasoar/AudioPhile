@@ -24,7 +24,7 @@ const ConfirmationModal: React.FC<{ order: Order; onClose: () => void }> = ({ or
 
   return (
     <div className="fixed inset-0 z-60 flex items-center justify-center bg-black/50">
-      <div className="bg-white rounded-[16px] w-[90%] max-w-2xl p-6 md:p-8">
+      <div className="bg-white rounded-2xl w-[90%] max-w-2xl p-6 md:p-8">
         <div className="flex flex-col items-start gap-6">
           {/* header */}
           <img src="/assets/checkout/icon-order-confirmation.svg" alt="order" className="w-12 h-12" />
@@ -41,7 +41,7 @@ const ConfirmationModal: React.FC<{ order: Order; onClose: () => void }> = ({ or
                   <div className="text-black font-semibold text-[15px] leading-[25px]">{order.items[0].name}</div>
                   <div className="text-[#808080] text-[14px]">${order.items[0].price.toLocaleString()}</div>
                 </div>
-                <div className="ml-auto font-bold text-[#707070] !align-top">x{order.items[0].quantity}</div>
+                <div className="ml-auto font-bold text-[#707070] ">x{order.items[0].quantity}</div>
               </div>
 
               {othersCount > 0 && (
@@ -53,7 +53,7 @@ const ConfirmationModal: React.FC<{ order: Order; onClose: () => void }> = ({ or
             </div>
 
             {/* right total */}
-            <div className="w-full md:w-[240px] bg-black rounded-md p-4 flex items-center justify-start">
+            <div className="w-full md:w-60 bg-black rounded-md p-4 flex items-center justify-start">
               <div className="pl-2">
                 <div className="text-[#808080] text-xs">GRAND TOTAL</div>
                 <div className="text-white font-bold">${order.totals.grandTotal.toLocaleString()}</div>

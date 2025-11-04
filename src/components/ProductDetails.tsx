@@ -2,7 +2,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../data/product";
 import CardProduct from "../components/CardProduct";
 import ProductGallery from "../components/ProductGallery";
-import CounterButton from "../components/CounterButton";
 import BestGearSection from "./BestGearSection";
 import CategorySection from "./CategorySection";
 
@@ -30,7 +29,7 @@ const ProductDetails: React.FC = () => {
       <section className="flex lg:flex-row flex-col justify-between mt-[120px] gap-12">
         <div className="lg:w-full">
           <h3 className="text-2xl font-bold uppercase mb-6">Features</h3>
-          <p className="text-gray-500 leading-7 whitespace-pre-line w-full w-[70%]">
+          <p className="text-gray-500 leading-7 whitespace-pre-line w-[70%]">
             {product.features}
           </p>
         </div>
@@ -78,7 +77,7 @@ const ProductDetails: React.FC = () => {
                   onClick={() =>
                     navigate(`/product/${targetProduct?.slug || ""}`)
                   }
-                  className="button-primary w-[160px]"
+                  className="button-primary w-40"
                 >
                   SEE PRODUCT
                 </button>
